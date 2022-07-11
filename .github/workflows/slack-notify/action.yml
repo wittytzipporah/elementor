@@ -13,3 +13,7 @@ runs:
   steps:
     - run: bash "${GITHUB_WORKSPACE}/.github/scripts/slack-notify.sh"
       shell: bash
+      env:
+          PACKAGE_VERSION: ${{ inputs.PACKAGE_VERSION }}
+          SLACK_TOKEN: ${{ inputs.SLACK_TOKEN }}
+          SLACK_CHANNELS: ${{ inputs.SLACK_CHANNELS }}
