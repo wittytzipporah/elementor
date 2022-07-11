@@ -1,10 +1,6 @@
 name: Slack Version Notify
-on:
-  workflow_call:
 
-jobs:
-  send-slack-notification:
-    name: Notify Slack
-    runs-on: ubuntu-latest
-    steps:
-      - run: bash "./../.github/scripts/slack-notify.sh"
+runs:
+  using: "composite"
+  steps:
+    - run: bash "./../.github/scripts/slack-notify.sh"
