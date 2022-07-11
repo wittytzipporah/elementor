@@ -8,7 +8,7 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v2
       - name: Send slack message
-        uses: ./.github/workflows/slack-notify.yml
+        uses: ./.github/workflows/slack-notify
         with:
           PACKAGE_VERSION: ${{ 'test version 123' }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
