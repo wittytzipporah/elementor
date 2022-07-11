@@ -11,5 +11,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: bash "./../scripts/slack-notify.sh"
+    - run: bash "${GITHUB_WORKSPACE}/.github/scripts/slack-notify.sh"
       shell: bash
