@@ -14,10 +14,12 @@ jobs:
             filename: './.github/workflows/config.json'
             prefix: config
       - name: Test permissions
-        run: "echo ${{env.config_users}}"
+        uses: ./.github/workflows/permissions
+        with:
+          TEST: ""
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
-          PACKAGE_VERSION: ${{ env.config_users }}
+          PACKAGE_VERSION: "TEST"
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           SLACK_CHANNELS: ${{ 'C03PMU9HK24' }}
