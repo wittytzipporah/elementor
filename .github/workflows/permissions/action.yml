@@ -1,12 +1,4 @@
-name: Slack Version Notify
-
-inputs:
-  PACKAGE_VERSION:
-    required: true
-  SLACK_TOKEN:
-    required: true
-  SLACK_CHANNELS:
-    required: true
+name: Validate user permissions 
 
 runs:
   using: "composite"
