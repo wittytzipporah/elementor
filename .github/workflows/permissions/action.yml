@@ -3,7 +3,7 @@ name: Validate user permissions
 runs:
   using: "composite"
   steps:
-    - run: contains(${{ env.config_users }}, github.actor)
+    - run: contains( "${{ env.config_users }}", "${{ github.actor }}" )
       shell: bash
 
 
