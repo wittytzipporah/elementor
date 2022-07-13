@@ -7,6 +7,8 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
       - name: Read config file contents
         id: read_file
         uses: andstor/file-reader-action@v1
