@@ -7,7 +7,7 @@ runs:
             if [[ ${{ env.config_users }} != *"${{ github.actor }}"* ]];then
                echo "::error::No deployment permissions have been granted to the user : ${{ github.actor }}"
             fi
-            if[[ github.repository != elementor/* ]]; then
+            if [[ "${{github.repository}}" != "elementor/*" ]];then
                echo "::error::The deployment cannot start outside the elementor organization"
             fi
             
