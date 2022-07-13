@@ -9,6 +9,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Test permissions
         uses: ./.github/workflows/permissions
+        with:
+          ACTOR: ${{ github.actor }}
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
