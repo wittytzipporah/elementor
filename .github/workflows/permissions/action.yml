@@ -3,8 +3,10 @@ name: Validate user permissions
 runs:
   using: "composite"
   steps:
-    - run: "echo ${{ github.actor }} ${{ env.config_users }}"
-      shell: bash
+    - run: |
+          [[ "${{ env.config_users }}" == *${{ github.actor }}* ]] && exit 0
+          exit 1
+    shell: bash
 
 
 
