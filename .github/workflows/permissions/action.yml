@@ -3,8 +3,10 @@ name: Validate user permissions
 runs:
   using: "composite"
   steps:
-    if: !contains( env.config_users , ${{ github.actor }} )
-    - run: exit 1
+    - run: |
+            if [[ ${{ env.config_users }} != *"${{ github.actor }}"* ]];then
+               echo "::error::No permission to deploy"
+            fi
       shell: bash
 
 
