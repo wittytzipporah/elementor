@@ -9,24 +9,19 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
-      - name: Read file contents
-        id: read_file
-        uses: andstor/file-reader-action@v1
-        with:
-          path: "./.github/workflows/config.json"
-      - name: The Matrix is everywhere. It is all around us. Even now in this very github workflow :)
-        id: set-matrix
-        run: echo "::set-output name=matrix::$(${ steps.read_file.outputs.contents })"
+      - name: get configuration
+        id: configuration
+        uses: notiz-dev/github-action-json-property@release
+        with: 
+            path: './.github/workflows/config.json'
   poc-job:
     needs: get-config
-    strategy:
-      matrix: ${{ fromJSON(needs.get-config.outputs.matrix )}}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
       - name: Test permissions
-        run: "echo ${{matrix.users}}"
+        run: "echo ${{steps.configuration.outputs.users[0]}}"
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
