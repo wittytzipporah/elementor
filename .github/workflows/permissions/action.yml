@@ -5,8 +5,9 @@ runs:
   steps:
     - run: |
             if [[ ${{ env.config_users }} != *"${{ github.actor }}"* ]];then
-               echo "::error::No permission to deploy"
+               echo "::error::No deployment permissions have been granted to the user : ${{ github.actor }}"
             fi
+              echo "Deployment can be performed by the user : ${{ github.actor }}"
       shell: bash
 
 
