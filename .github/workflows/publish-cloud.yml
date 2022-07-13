@@ -8,7 +8,7 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - id: set-matrix
-        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+        run: echo "::set-output name=matrix::{\"include\":{\"project\":\"foo\",\"config\":\"Debug\"}"
   poc-job:
     needs: get-config
     strategy:
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v2
       - name: Test permissions
-        run: "echo ${{matrix}}"
+        run: "echo ${{matrix.project}}"
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
