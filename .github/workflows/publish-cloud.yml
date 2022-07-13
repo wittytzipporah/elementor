@@ -4,8 +4,6 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   get-config:
     runs-on: ubuntu-20.04
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
