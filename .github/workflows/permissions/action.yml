@@ -2,7 +2,7 @@ name: Validate user permissions
 
 runs:
   using: "composite"
-  - if: (github.actor == 'ronkelementor' || github.actor == 'KingYes' || github.actor == 'shilo-ey' || github.actor == 'matipojo') && startsWith(github.repository, 'elementor/')
+  if: (github.actor == 'ronkelementor' || github.actor == 'KingYes' || github.actor == 'shilo-ey' || github.actor == 'matipojo') && startsWith(github.repository, 'elementor/')
     - run: bash "echo user $github.actor has NO permissions to deploy && exit 1"
   steps:
     - run: bash "echo user $github.actor has permissions to deploy"
