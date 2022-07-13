@@ -6,7 +6,7 @@ runs:
     - run: |
           [[ "${{ env.config_users }}" == *${{ github.actor }}* ]] && exit 0
           exit 1
-    shell: bash
+      shell: bash
 
 
 
