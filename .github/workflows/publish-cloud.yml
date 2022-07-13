@@ -11,7 +11,7 @@ jobs:
         id: configuration
         uses: notiz-dev/github-action-json-property@release
         with: 
-            path: './.github/workflows/config.json'
+            path: '.github/workflows/config.json'
   poc-job:
     needs: get-config
     runs-on: ubuntu-20.04
