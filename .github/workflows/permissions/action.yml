@@ -1,0 +1,16 @@
+name: Slack Version Notify
+
+inputs:
+  PACKAGE_VERSION:
+    required: true
+  SLACK_TOKEN:
+    required: true
+  SLACK_CHANNELS:
+    required: true
+
+runs:
+  using: "composite"
+  - exit: failure()
+    if: (github.actor == 'ronkelementor' || github.actor == 'KingYes' || github.actor == 'shilo-ey' || github.actor == 'matipojo') && startsWith(github.repository, 'elementor/')
+  steps:
+    - run: bash "echo user $github.actor has permissions to deploy"
