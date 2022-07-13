@@ -16,7 +16,7 @@ jobs:
           path: "./.github/workflows/config.json"
       - name: The Matrix is everywhere. It is all around us. Even now in this very github workflow :)
         id: set-matrix
-        run: echo "::set-output name=matrix::${ steps.read_file.outputs.contents }"
+        run: echo "::set-output name=matrix::$(${ steps.read_file.outputs.contents })"
   poc-job:
     needs: get-config
     strategy:
