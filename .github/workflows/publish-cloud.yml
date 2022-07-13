@@ -20,10 +20,10 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v2
       - name: Test permissions
-        run: "echo ${{ENV.config_users}}"
+        run: "echo ${{env.config_users}}"
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
-          PACKAGE_VERSION: "echo ${{ENV.config_users}}"
+          PACKAGE_VERSION: ${{ env.config_users }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           SLACK_CHANNELS: ${{ 'C03PMU9HK24' }}
