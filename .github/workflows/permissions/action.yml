@@ -1,13 +1,9 @@
 name: Validate user permissions 
 
-inputs:
-  ACTOR:
-    required: true  
-  
 runs:
   using: "composite"
   steps:
-    - run: "echo ${{inputs.ACTOR}}"
+    - run: "echo ${{ github.actor }} ${{ env.config_users }}"
       shell: bash
 
 
