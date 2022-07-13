@@ -7,13 +7,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-    run: |
-    if [[ "${{inputs.ACTOR}}" != "" ]]; then
-      echo "user ${{inputs.ACTOR}} has NO permissions to deploy"
-      exit 0
-    fi
-    echo "user ${{inputs.ACTOR}} has permissions to deploy"
-
+    - run: |
+            if [[ "${{inputs.ACTOR}}" != "" ]]; then
+              echo "user ${{inputs.ACTOR}} has NO permissions to deploy"
+              exit 0
+            fi
+            echo "user ${{inputs.ACTOR}} has permissions to deploy"
 
 
 
