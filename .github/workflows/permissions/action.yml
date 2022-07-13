@@ -7,7 +7,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: "echo 123"
+    - run: "echo ${{ACTOR}}"
       shell: bash
 
 
