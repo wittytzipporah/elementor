@@ -1,8 +1,20 @@
 name: Validate user permissions 
 
+inputs:
+  ACTOR:
+    required: true  
+  
 runs:
   using: "composite"
-  if: (github.actor == 'ronkelementor' || github.actor == 'KingYes' || github.actor == 'shilo-ey' || github.actor == 'matipojo') && startsWith(github.repository, 'elementor/')
-    - run: bash "echo user $github.actor has NO permissions to deploy && exit 1"
   steps:
-    - run: bash "echo user $github.actor has permissions to deploy"
+    run: |
+    if [[ "${{inputs.ACTOR}}" != "" ]]; then
+      echo "user ${{inputs.ACTOR}} has NO permissions to deploy"
+      exit 0
+    fi
+    echo "user ${{inputs.ACTOR}} has permissions to deploy"
+
+
+
+
+  
