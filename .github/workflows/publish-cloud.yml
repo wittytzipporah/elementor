@@ -2,15 +2,26 @@ name: Publish Cloud Version
 
 on: [push, pull_request, workflow_dispatch]
 jobs:
+  get-config:
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   poc-job:
+    needs: get-config
+    strategy:
+      matrix: ${{ fromJSON(needs.get-config.outputs.matrix )}}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
-      - name: Test permissions
-        uses: ./.github/workflows/permissions
-        with:
-          ACTOR: ${{ github.actor }}
+#       - name: Test permissions
+#         uses: ./.github/workflows/permissions
+#         with:
+#           ACTOR: ${{ github.actor }}
+    
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
