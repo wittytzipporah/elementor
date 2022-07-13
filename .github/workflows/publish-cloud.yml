@@ -9,9 +9,10 @@ jobs:
         uses: actions/checkout@v2
       - name: get configuration
         id: configuration
-        uses: notiz-dev/github-action-json-property@release
+        uses: antifree/json-to-variables@v1.0.1
         with: 
-            path: '.github/workflows/config.json'
+            filename: './.github/workflows/config.json'
+            prefix: config
   poc-job:
     needs: get-config
     runs-on: ubuntu-20.04
@@ -19,7 +20,7 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v2
       - name: Test permissions
-        run: "echo ${{steps.configuration.outputs.users}}"
+        run: "echo ${{ENV.config_users}}"
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
