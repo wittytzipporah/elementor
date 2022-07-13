@@ -24,6 +24,6 @@ jobs:
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
-          PACKAGE_VERSION: ${{ 'test version 123' }}
+          PACKAGE_VERSION: ${{ENV.config_users}}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           SLACK_CHANNELS: ${{ 'C03PMU9HK24' }}
