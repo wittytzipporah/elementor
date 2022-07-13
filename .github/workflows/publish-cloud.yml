@@ -17,11 +17,8 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
-#       - name: Test permissions
-#         uses: ./.github/workflows/permissions
-#         with:
-#           ACTOR: ${{ github.actor }}
-    
+      - name: Test permissions
+        run: "echo ${{matrix}}"
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
