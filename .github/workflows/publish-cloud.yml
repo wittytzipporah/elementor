@@ -2,7 +2,7 @@ name: Publish Cloud Version
 
 on: [push, pull_request, workflow_dispatch]
 jobs:
-  get-config:
+  publish-to-cloud:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout branch
@@ -13,12 +13,6 @@ jobs:
         with: 
             filename: './.github/workflows/config.json'
             prefix: config
-  poc-job:
-    needs: get-config
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v2
       - name: Test permissions
         run: "echo ${{env.config_users}}"
       - name: Send slack message
