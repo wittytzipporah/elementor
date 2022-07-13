@@ -9,9 +9,14 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
+      - name: Read file contents
+        id: read_file
+        uses: andstor/file-reader-action@v1
+        with:
+          path: "./.github/workflows/config.json"
       - name: The Matrix is everywhere. It is all around us. Even now in this very github workflow :)
         id: set-matrix
-        run: echo "::set-output name=matrix::${{ cat | ./.github/workflows/config.json }}"
+        run: echo "::set-output name=matrix::${ steps.read_file.outputs.contents }"
   poc-job:
     needs: get-config
     strategy:
