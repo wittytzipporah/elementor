@@ -15,8 +15,6 @@ jobs:
             prefix: config
       - name: Test permissions
         uses: ./.github/workflows/permissions
-        with:
-          TEST: ""
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
