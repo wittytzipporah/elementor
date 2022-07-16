@@ -15,9 +15,14 @@ jobs:
             prefix: config
       - name: Test permissions
         uses: ./.github/workflows/permissions
-      - name: Send slack message
-        uses: ./.github/workflows/slack-notify
+      - name: Install Node.js 14.x
+        uses: actions/setup-node@v2
         with:
-          PACKAGE_VERSION: "TEST"
-          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-          SLACK_CHANNELS: ${{ 'C03PMU9HK24' }}
+          node-version: 14.x
+
+#       - name: Send slack message
+#         uses: ./.github/workflows/slack-notify
+#         with:
+#           PACKAGE_VERSION: "TEST"
+#           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+#           SLACK_CHANNELS: ${{ 'C03PMU9HK24' }}
