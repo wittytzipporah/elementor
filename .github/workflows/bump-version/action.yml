@@ -1,12 +1,16 @@
 name: Bump version
 
+inputs:
+  MAINTAIN_TOKEN:
+    required: true
+    
 runs:
   using: "composite"
   steps:
     - name: Checkout next release branch
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.MAINTAIN_TOKEN }}
+        token: ${{ inputs.MAINTAIN_TOKEN }}
         ref: ${{ env.RELEASE_BRANCH }}
     - run: |
             npm install --no-package-lock --no-save semver@7.3.4
