@@ -1,4 +1,4 @@
-name: Push new version to release branch
+name: Push new version
 
 inputs:
   MAINTAIN_USERNAME:
