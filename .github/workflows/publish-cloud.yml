@@ -21,11 +21,6 @@ jobs:
           node-version: 14.x
       - name: Get next release branch
         uses: ./.github/workflows/get-next-release-branch
-      - name: Checkout next release branch
-        uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.MAINTAIN_TOKEN }}
-          ref: ${{ env.RELEASE_BRANCH }}
       - name: Bump version
         uses: ./.github/workflows/bump-version
 
