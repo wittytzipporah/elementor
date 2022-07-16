@@ -15,9 +15,9 @@ runs:
                 RELEASE_BRANCH="release/${INPUT_VERSION}"
               fi
               echo "RELEASE_BRANCH=${RELEASE_BRANCH}" >> $GITHUB_ENV
-    shell: bash
-    env:
-        PACKAGE_VERSION: ${{ inputs.PACKAGE_VERSION }}
-        SLACK_TOKEN: ${{ inputs.SLACK_TOKEN }}
-        SLACK_CHANNELS: ${{ inputs.SLACK_CHANNELS }}
-        TEST_PERMISSIONS : "1"
+      shell: bash
+      env:
+          PACKAGE_VERSION: ${{ inputs.PACKAGE_VERSION }}
+          SLACK_TOKEN: ${{ inputs.SLACK_TOKEN }}
+          SLACK_CHANNELS: ${{ inputs.SLACK_CHANNELS }}
+          TEST_PERMISSIONS : "1"
