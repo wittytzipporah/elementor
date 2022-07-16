@@ -1,4 +1,4 @@
-name: Checkout next release branch
+name: Get next release branch
 
 runs:
   using: "composite"
