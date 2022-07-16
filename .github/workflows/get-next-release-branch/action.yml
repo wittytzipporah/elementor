@@ -17,8 +17,3 @@ runs:
               echo "RELEASE_BRANCH=${RELEASE_BRANCH}" >> $GITHUB_ENV
               echo "RELEASE_BRANCH : ${RELEASE_BRANCH}"
       shell: bash
-    - name: Checkout next release branch
-        uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.MAINTAIN_TOKEN }}
-          ref: ${{ env.RELEASE_BRANCH }}
