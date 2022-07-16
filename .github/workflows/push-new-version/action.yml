@@ -11,8 +11,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: |
-            echo "This is git push demo - PACKAGE_VERSION ${inputs.PACKAGE_VERSION}"
+    - run: "echo 'This is git push demo - PACKAGE_VERSION ${inputs.PACKAGE_VERSION}'"
       shell: bash
       
 # git config user.name ${inputs.MAINTAIN_USERNAME}
