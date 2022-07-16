@@ -26,9 +26,9 @@ jobs:
       - name: Push version
         uses : ./.github/workflows/push-new-version
         with:
-          MAINTAIN_USERNAME: ${{ env.PACKAGE_VERSION }}
+          MAINTAIN_USERNAME: ${{ secrets.MAINTAIN_USERNAME }}
           MAINTAIN_EMAIL: ${{ secrets.MAINTAIN_EMAIL }}
-          PACKAGE_VERSION: ${{ secrets.MAINTAIN_USERNAME }}
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
 
 #       - name: Send slack message
 #         uses: ./.github/workflows/slack-notify
