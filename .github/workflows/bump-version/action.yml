@@ -1,0 +1,20 @@
+name: Bump version
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+            npm install --no-package-lock --no-save semver@7.3.4
+            PREV_PACKAGE_VERSION=$(node -p "require('./package.json').last_beta_version")
+            NEW_PACKAGE_VERSION=$(node ./.github/scripts/update-prerelease-version.js beta)
+            PACKAGE_VERSION=$(node -p "require('./package.json').last_beta_version")
+
+            if [[ $PACKAGE_VERSION == *beta1 ]]
+            then
+              PREV_PACKAGE_VERSION=$(node -p "require('./package.json').version")
+            fi
+
+            echo "PACKAGE_VERSION=${PACKAGE_VERSION}" >> $GITHUB_ENV
+            echo "PACKAGE_VERSION : ${PACKAGE_VERSION}"
+            echo "::set-output name=prev_version::${PREV_PACKAGE_VERSION}"
+      shell: bash
