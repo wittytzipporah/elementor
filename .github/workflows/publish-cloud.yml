@@ -15,12 +15,16 @@ jobs:
             prefix: config
       - name: Test permissions
         uses: ./.github/workflows/permissions
+      - name: Install Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
       - name: Get next release branch
         uses: ./.github/workflows/get-next-release-branch
-      - name: Bump version
-        uses: ./.github/workflows/bump-version
-        with:
-          MAINTAIN_TOKEN: ${{ secrets.MAINTAIN_TOKEN }}
+#       - name: Bump version
+#         uses: ./.github/workflows/bump-version
+#         with:
+#           MAINTAIN_TOKEN: ${{ secrets.MAINTAIN_TOKEN }}
 #       - name: Send slack message
 #         uses: ./.github/workflows/slack-notify
 #         with:
