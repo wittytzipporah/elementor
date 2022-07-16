@@ -23,6 +23,8 @@ jobs:
         uses: ./.github/workflows/get-next-release-branch
       - name: Bump version
         uses: ./.github/workflows/bump-version
+      - name: Push version
+        uses : ./.github/workflows/push-new-version-to-release-branch
 
 #       - name: Send slack message
 #         uses: ./.github/workflows/slack-notify
