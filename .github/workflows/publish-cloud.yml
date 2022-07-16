@@ -19,8 +19,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-      - name: Checkout next release branch
-        uses: ./.github/workflows/checkout-next-release-branch
+      - name: Get next release branch
+        uses: ./.github/workflows/get-next-release-branch
 
 #       - name: Send slack message
 #         uses: ./.github/workflows/slack-notify
