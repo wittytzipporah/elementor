@@ -26,6 +26,8 @@ jobs:
         with:
           token: ${{ secrets.MAINTAIN_TOKEN }}
           ref: ${{ env.RELEASE_BRANCH }}
+      - name: Bump version
+        uses: ./.github/workflows/bump-version
 
 #       - name: Send slack message
 #         uses: ./.github/workflows/slack-notify
