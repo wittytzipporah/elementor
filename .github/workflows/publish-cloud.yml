@@ -24,7 +24,7 @@ jobs:
       - name: Bump version
         uses: ./.github/workflows/bump-version
       - name: Push version
-        uses : ./.github/workflows/push-new-version-to-release-branch
+        uses : ./.github/workflows/push-new-version
         with:
           MAINTAIN_USERNAME: ${{ env.PACKAGE_VERSION }}
           MAINTAIN_EMAIL: ${{ secrets.MAINTAIN_EMAIL }}
