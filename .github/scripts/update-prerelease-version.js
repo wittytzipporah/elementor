@@ -44,6 +44,12 @@ if (preId === 'beta') {
 	return;
 }
 
+if (preId === 'cloud') {
+	const relativeVersion = packageJson.version;
+	bumpVersion(relativeVersion, 'version');
+	return;
+}
+
 if (preId === 'dev') {
 	const lastBetaVersion = (() => {
 		const attrValue = packageJson.last_beta_version;
