@@ -1,20 +1,17 @@
 name: Slack Version Notify
 
 inputs:
-  PACKAGE_VERSION:
+  MESSAGE:
     required: true
   SLACK_TOKEN:
     required: true
-  SLACK_CHANNELS:
+  SLACK_CHANNEL:
     required: true
 
 runs:
   using: "composite"
   steps:
-    - run: bash "${GITHUB_WORKSPACE}/.github/scripts/slack-notify.sh"
+    - run: |
+            SLACK_BOT_NAME="ElementorBot"
+            curl -X POST "https://slack.com/api/chat.postMessage" -d "username=${SLACK_BOT_NAME}&token=${{ inputs.SLACK_TOKEN }}&channel=${{ inputs.SLACK_CHANNEL }}&text=${{ inputs.MESSAGE }}&link_names=true"
       shell: bash
-      env:
-          PACKAGE_VERSION: ${{ inputs.PACKAGE_VERSION }}
-          SLACK_TOKEN: ${{ inputs.SLACK_TOKEN }}
-          SLACK_CHANNELS: ${{ inputs.SLACK_CHANNELS }}
-          TEST_PERMISSIONS : "1"
