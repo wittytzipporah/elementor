@@ -35,4 +35,4 @@ jobs:
         with:
           MESSAGE: "This is a test Message from pulish cloud runner"
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-          SLACK_CHANNELS: ${{ 'C03PMU9HK24' }}
+          SLACK_CHANNEL: ${{ 'C03PMU9HK24' }}
