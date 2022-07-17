@@ -33,6 +33,6 @@ jobs:
       - name: Send slack message
         uses: ./.github/workflows/slack-notify
         with:
-          MESSAGE: "This is a test Message from pulish cloud runner"
+          MESSAGE: "@here Elementor ${{ env.PACKAGE_VERSION }} has been released! Saddle up partners! :tada:"
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           SLACK_CHANNEL: ${{ 'C03PMU9HK24' }}
