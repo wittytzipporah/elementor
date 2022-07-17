@@ -30,9 +30,9 @@ jobs:
           MAINTAIN_EMAIL: ${{ secrets.MAINTAIN_EMAIL }}
           PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
 
-#       - name: Send slack message
-#         uses: ./.github/workflows/slack-notify
-#         with:
-#           PACKAGE_VERSION: "TEST"
-#           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-#           SLACK_CHANNELS: ${{ 'C03PMU9HK24' }}
+      - name: Send slack message
+        uses: ./.github/workflows/slack-notify
+        with:
+          MESSAGE: "This is a test Message from pulish cloud runner"
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_CHANNELS: ${{ 'C03PMU9HK24' }}
